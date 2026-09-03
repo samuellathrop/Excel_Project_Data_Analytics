@@ -92,7 +92,7 @@ I cleaned and prepared both queries by updating data types, removing unnecessary
 - Roles such as Business Analyst and Data Analyst appear toward the lower end of both measures.
 - The pattern suggests that roles requiring broader or more specialized skill sets may also command higher salaries, although skill count alone does not explain every salary difference.
 
-    ![2_Project_Analysis_Chart1.png](/0_Resources/Images/2_Project_Analysis_Chart1.png)
+    <img width="723" height="498" alt="Screenshot 2026-09-03 at 12 21 33 PM" src="https://github.com/user-attachments/assets/93b1f16a-38d4-403c-b479-6e4aecdbded2" />
 
 ### Why It Matters?
 
@@ -135,8 +135,10 @@ I used these measures to compare median salaries across different job titles and
 - Salary levels vary noticeably between U.S. and non-U.S. markets for several job titles.
 - The results suggest that both role specialization and geographic market can have a meaningful impact on compensation.
 
+ <img width="764" height="285" alt="Screenshot 2026-09-03 at 1 44 44 PM" src="https://github.com/user-attachments/assets/14d5d3f2-05a8-480e-a9fa-666a973ee880" />
 
-    ![2_Project_Analysis_Chart2.png](/0_Resources/Images/2_Project_Analysis_Chart2.png)
+
+
 
 ### Why It Matters
 
@@ -158,13 +160,11 @@ Because the data had already been cleaned in Power Query, I was able to connect 
 
 I created a relationship between the two tables using the shared `job_id` field.
 
-    ![2_Project_Analysis_Screenshot5.png](/0_Resources/Images/2_Project_Analysis_Screenshot5.png)
 
 #### Power Pivot Menu
 
 I used Power Pivot to manage the Data Model, review relationships, and create measures for the analysis.
 
-    ![2_Project_Analysis_Screenshot6.png](/0_Resources/Images/2_Project_Analysis_Screenshot6.png)
 
 ### Analysis
 
@@ -176,7 +176,7 @@ I used the connected job and skills tables to identify which technical skills ap
 - Cloud technologies such as AWS and Azure also appear frequently, showing the growing importance of cloud platforms in data work.
 - The results highlight a mix of core analytical skills and newer infrastructure-focused technologies.
 
-    ![2_Project_Analysis_Chart3.png](/0_Resources/Images/2_Project_Analysis_Chart3.png)
+    <img width="864" height="347" alt="Screenshot 2026-09-03 at 12 34 51 PM" src="https://github.com/user-attachments/assets/89e57df8-77de-4e31-a7ca-16e9a88eab2d" />
 
 ### Why It Matters
 
