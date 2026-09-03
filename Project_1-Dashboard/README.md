@@ -11,7 +11,7 @@ This project is an interactive Excel dashboard built to explore salary trends ac
 Users can filter the dashboard by job title, country, and employment type to compare median salaries, job counts, and commonly used job platforms. The goal was to take a large job-posting dataset and turn it into something that makes salary information easier to explore and understand.
 
 
-### Dashboard
+## Dashboard
 https://github.com/user-attachments/assets/ebd2ba84-42e8-4553-b0bb-a52ccc1dd671
 
 The dashboard allows users to:
@@ -100,14 +100,6 @@ This formula uses multiple criteria to return salary values that match the user'
 
 The calculation:
 
-Matches the selected job title
-Matches the selected country
-Matches the selected employment type
-Excludes blank or zero salary values
-Returns the median salary for the remaining records
-
-The calculation:
-
 - Matches the selected job title
 - Matches the selected country
 - Matches the selected employment type
@@ -116,29 +108,16 @@ The calculation:
 
 This value is used throughout the dashboard, including the salary card and related charts.
 
-### Salary Comparison by Job Title and Location
-
-This pivot table compares median salaries across different data-related job titles and also breaks the results out by U.S. and non-U.S. roles.
-
-The country slicer makes it possible to filter the results by location and see how salary levels change across different markets.
-
-This analysis helped me compare:
-
-- Median salary by job title
-- U.S. versus non-U.S. salary levels
-- Salary differences across countries
-- How location affects compensation for similar roles
-
-
-<img width="764" height="285" alt="Screenshot 2026-09-03 at 1 44 44 PM" src="https://github.com/user-attachments/assets/c4b0fc38-a18f-4847-8c17-c79f9412a4fe" />
 
 
 
-### Dashboard Implementation
 
-The resulting values are displayed in the dashboard, where the selected job title is highlighted against other data-related roles.
+### Job Title Dashboard
 
-<img width="1062" height="302" alt="Screenshot 2026-09-03 at 1 32 08 PM" src="https://github.com/user-attachments/assets/0c762878-89d6-4f8e-94c7-9667a32c9e1e" />
+The calculated salary values feed directly into the dashboard's job title comparison. When a user selects a job title, the dashboard highlights that role and updates the median salary based on the selected country and employment type.
+
+[INSERT CROPPED IMAGE FROM DASHBOARD 1 SHOWING:
+JOB TITLE SELECTOR + SALARY BAR CHART + MEDIAN SALARY CARD]
 
 
 ## Employment Type Filtering
@@ -169,13 +148,9 @@ This:
 - Makes the dashboard easier to navigate
 - Allows the charts and calculations to update dynamically
 
-### Employment Type Table
 
-The filtered employment types are used to create the dropdown options for the dashboard.
 
-![Employment Type Table](./0_Resources/Images/1_Salary_Dashboard_Screenshot2.png)
-
-### Dashboard Implementation
+### Employment Type Dashboard
 
 The selected employment type updates the related salary chart and job count automatically.
 
