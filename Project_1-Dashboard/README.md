@@ -109,60 +109,43 @@ The calculation:
 This value is used throughout the dashboard, including the salary card and related charts.
 
 
+ Background Table
 
+![1_Salary_Dashboard_Screenshot1.png](/0_Resources/Images/1_Salary_Dashboard_Screenshot1.png)
 
+ Dashboard Implementation
 
-### Job Title Dashboard
+<img src="/0_Resources/Images/1_Salary_Dashboard_Job_Title.png" width="400" height="500" alt="Salary Dashboard Title">
 
-The calculated salary values feed directly into the dashboard's job title comparison. When a user selects a job title, the dashboard highlights that role and updates the median salary based on the selected country and employment type.
+#### Count of Job Schedule Type
 
-[INSERT CROPPED IMAGE FROM DASHBOARD 1 SHOWING:
-JOB TITLE SELECTOR + SALARY BAR CHART + MEDIAN SALARY CARD]
-
-
-## Employment Type Filtering
-
-To create a clean list of employment types for the dashboard, I used Excel's `FILTER()` function.
-
-```excel
-=FILTER(
-J2#,
-(NOT(ISNUMBER(SEARCH("and",J2#)))+
-ISNUMBER(SEARCH(",",J2#))))*
-(J2#<>0)
-)
+```
+=FILTER(J2#,(NOT(ISNUMBER(SEARCH("and",J2#))+ISNUMBER(SEARCH(",",J2#))))*(J2#<>0))
 ```
 
-This formula filters the source list to remove unwanted entries and create a usable set of employment-type options.
+-  **Unique List Generation:** This Excel formula below employs the `FILTER()` function to exclude entries containing "and" or commas, and omit zero values.
+- ** Formula Purpose:** This formula populates the table below, which gives us a list of unique job schedule types.
 
-The filtered list is then used for the dashboard's employment type dropdown.
+Background Table
+
+![1_Salary_Dashboard_Type.png](/0_Resources/Images/1_Salary_Dashboard_Screenshot2.png)
+
+ Dashboard Implementation:
+
+<img src="/0_Resources/Images/1_Salary_Dashboard_Type.png" width="350" height="500" alt="Salary Dashboard Type">
 
 ### Data Validation
 
-I applied data validation to the Job Title, Country, and Type fields so users can select from predefined values rather than manually entering criteria.
+#### Filtered List
 
-This:
+-  **Enhanced Data Validation:** Implementing the filtered list as a data validation rule under the `Job Title`, `Country`, and `Type` option in the Data tab ensures:
+    -  User input is restricted to predefined, validated schedule types
+    -  Incorrect or inconsistent entries are prevented
+    -  Overall usability of the dashboard is enhanced
 
-- Keeps user inputs consistent
-- Prevents invalid selections
-- Makes the dashboard easier to navigate
-- Allows the charts and calculations to update dynamically
+<img src="/0_Resources/Images/1_Salary_Dashboard_Data_Validation.gif" width="425" height="400" alt="Salary Dashboard Data Validation">
 
 
-
-### Employment Type Dashboard
-
-The selected employment type updates the related salary chart and job count automatically.
-
-<img src="./0_Resources/Images/1_Salary_Dashboard_Type.png" width="350" alt="Employment Type Dashboard">
-
-### Data Validation in Action
-
-The Job Title, Country, and Type dropdowns make it easy to change the dashboard criteria without manually editing formulas or cells.
-
-The dashboard responds to each selection and updates the relevant calculations and visualizations.
-
-<img src="./0_Resources/Images/1_Salary_Dashboard_Data_Validation.gif" width="425" alt="Salary Dashboard Data Validation">
 
 ## What I Learned
 
