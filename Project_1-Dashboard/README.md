@@ -1,6 +1,9 @@
+
+
+
 # Excel Salary Dashboard
 
-![1_Salary_Dashboard.png](/0_Resources/Images/1_Salary_Dashboard_Final_Dashboard.gif)
+
 
 ## Overview
 This project is an interactive Excel dashboard built to explore salary trends across data-related careers.
@@ -9,53 +12,80 @@ Users can filter the dashboard by job title, country, and employment type to com
 
 
 ### Dashboard
-My final dashboard is in [1_Salary_Dashboard.xlsx](1_Salary_Dashboard.xlsx).
+https://github.com/user-attachments/assets/ebd2ba84-42e8-4553-b0bb-a52ccc1dd671
+
+The dashboard allows users to:
+
+- Compare median salaries across data-related job titles
+- Filter results by country
+- Filter by employment type
+- View the number of matching job postings
+- Identify the most common job platform for the selected criteria
+
+## Project File
+
+The completed Excel workbook can be found here:
+
+[1_Salary_Dashboard.xlsx](1_Salary_Dashboard.xlsx)
 
 ### Excel Skills Used
 
-The following Excel skills were utilized for analysis:
+This project gave me hands-on practice with several Excel tools and techniques:
 
-- **📉 Charts**
-- **🧮 Formulas and Functions**
-- **❎ Data Validation**
+- Charts and data visualization
+- Formulas and functions
+- Data validation
+- Dynamic filtering
+- Array formulas
+- Sorting and organizing data
+- Dashboard design
+- Working with structured Excel tables
 
-### Data Jobs Dataset
+## Dataset
 
-The dataset used for this project contains real-world data science job information from 2023. The dataset is available via my Excel course, which provides a foundation for analyzing data using Excel. It includes detailed information on:
+The dataset contains real-world data science job postings from 2023 and includes information such as:
 
-- **👨‍💼 Job titles**
-- **💰 Salaries**
-- **📍 Locations**
-- **🛠️ Skills**
+- Job titles
+- Salaries
+- Countries and locations
+- Employment types
+- Job platforms
+- Required skills
 
-## Dashboard Build
+I used this data to build the calculations, charts, and interactive controls used throughout the dashboard.
 
-### 📉 Charts
 
-#### 📊 Data Science Job Salaries - Bar Chart
+# Dashboard Build
+
+## Job Title Salary Comparison
 
 <img src="/0_Resources/Images/1_Salary_Dashboard_Chart1.png" width="850" height="550" alt="Salary Dashboard Chart1">
 
-- 🛠️ **Excel Features:** Utilized bar chart feature (with formatted salary values) and optimized layout for clarity.
-- 🎨 **Design Choice:** Horizontal bar chart for visual comparison of median salaries.
-- 📉 **Data Organization:** Sorted job titles by descending salary for improved readability.
-- 💡 **Insights Gained:** This enables quick identification of salary trends, noting that Senior roles and Engineers are higher-paying than Analyst roles.
+I created a horizontal bar chart to compare median salaries across different data-related job titles.
 
-#### 🗺️ Country Median Salaries - Map Chart
+The job titles are sorted by salary to make comparisons easier. The selected job title is also highlighted so users can quickly see how it compares with other roles.
+
+For example, the dashboard makes it easy to see that senior-level and engineering positions generally have higher median salaries than analyst-level positions.
+
+
+## Country Salary Map
 
 ![1_Salary_Dashboard_Chart2.png](/0_Resources/Images/1_Salary_Dashboard_Country_Map.gif)
 
-- 🛠️ **Excel Features:** Utilized Excel's map chart feature to plot median salaries globally.
-- 🎨 **Design Choice:** Color-coded map to visually differentiate salary levels across regions.
-- 📊 **Data Representation:** Plotted median salary for each country with available data.
-- 👁️ **Visual Enhancement:** Improved readability and immediate understanding of geographic salary trends.
-- 💡 **Insights Gained:** Enables quick grasp of global salary disparities and highlights high/low salary regions.
+I used Excel's map chart to visualize median salaries by country.
 
-### 🧮 Formulas and Functions
+This gives users a geographic view of salary differences and makes it easier to compare compensation across different regions.
 
-#### 💰 Median Salary by Job Titles
+The map updates based on the criteria selected in the dashboard.
 
-```
+
+# Formulas and Functions
+
+## Median Salary Calculation
+
+The dashboard calculates median salary dynamically based on the selected job title, country, and employment type.
+
+```excel
 =MEDIAN(
 IF(
     (jobs[job_title_short]=A2)*
@@ -66,48 +96,116 @@ IF(
 )
 )
 ```
+This formula uses multiple criteria to return salary values that match the user's selections before calculating the median.
 
-- 🔍 **Multi-Criteria Filtering:** Checks job title, country, schedule type, and excludes blank salaries.
-- 📊 **Array Formula:** Utilizes `MEDIAN()` function with nested `IF()` statement to analyze an array.
-- 🎯 **Tailored Insights:** Provides specific salary information for job titles, regions, and schedule types.
-- **🔢 Formula Purpose:** This formula populates the table below, returning the median salary based on job title, country, and type specified.
+The calculation:
 
-🍽️ Background Table
+Matches the selected job title
+Matches the selected country
+Matches the selected employment type
+Excludes blank or zero salary values
+Returns the median salary for the remaining records
 
-![1_Salary_Dashboard_Screenshot1.png](/0_Resources/Images/1_Salary_Dashboard_Screenshot1.png)
+The calculation:
 
-📉 Dashboard Implementation
+- Matches the selected job title
+- Matches the selected country
+- Matches the selected employment type
+- Excludes blank or zero salary values
+- Returns the median salary for the remaining records
 
-<img src="/0_Resources/Images/1_Salary_Dashboard_Job_Title.png" width="400" height="500" alt="Salary Dashboard Title">
+This value is used throughout the dashboard, including the salary card and related charts.
 
-#### ⏰ Count of Job Schedule Type
+### Salary Comparison by Job Title and Location
 
+This pivot table compares median salaries across different data-related job titles and also breaks the results out by U.S. and non-U.S. roles.
+
+The country slicer makes it possible to filter the results by location and see how salary levels change across different markets.
+
+This analysis helped me compare:
+
+- Median salary by job title
+- U.S. versus non-U.S. salary levels
+- Salary differences across countries
+- How location affects compensation for similar roles
+
+
+<img width="764" height="285" alt="Screenshot 2026-09-03 at 1 44 44 PM" src="https://github.com/user-attachments/assets/c4b0fc38-a18f-4847-8c17-c79f9412a4fe" />
+
+
+
+### Dashboard Implementation
+
+The resulting values are displayed in the dashboard, where the selected job title is highlighted against other data-related roles.
+
+<img width="1062" height="302" alt="Screenshot 2026-09-03 at 1 32 08 PM" src="https://github.com/user-attachments/assets/0c762878-89d6-4f8e-94c7-9667a32c9e1e" />
+
+
+## Employment Type Filtering
+
+To create a clean list of employment types for the dashboard, I used Excel's `FILTER()` function.
+
+```excel
+=FILTER(
+J2#,
+(NOT(ISNUMBER(SEARCH("and",J2#)))+
+ISNUMBER(SEARCH(",",J2#))))*
+(J2#<>0)
+)
 ```
-=FILTER(J2#,(NOT(ISNUMBER(SEARCH("and",J2#))+ISNUMBER(SEARCH(",",J2#))))*(J2#<>0))
-```
 
-- 🔍 **Unique List Generation:** This Excel formula below employs the `FILTER()` function to exclude entries containing "and" or commas, and omit zero values.
-- **🔢 Formula Purpose:** This formula populates the table below, which gives us a list of unique job schedule types.
+This formula filters the source list to remove unwanted entries and create a usable set of employment-type options.
 
-🍽️ Background Table
+The filtered list is then used for the dashboard's employment type dropdown.
 
-![1_Salary_Dashboard_Type.png](/0_Resources/Images/1_Salary_Dashboard_Screenshot2.png)
+### Data Validation
 
-📉 Dashboard Implementation:
+I applied data validation to the Job Title, Country, and Type fields so users can select from predefined values rather than manually entering criteria.
 
-<img src="/0_Resources/Images/1_Salary_Dashboard_Type.png" width="350" height="500" alt="Salary Dashboard Type">
+This:
 
-### ❎ Data Validation
+- Keeps user inputs consistent
+- Prevents invalid selections
+- Makes the dashboard easier to navigate
+- Allows the charts and calculations to update dynamically
 
-#### 🔍 Filtered List
+### Employment Type Table
 
-- 🔒 **Enhanced Data Validation:** Implementing the filtered list as a data validation rule under the `Job Title`, `Country`, and `Type` option in the Data tab ensures:
-    - 🎯 User input is restricted to predefined, validated schedule types
-    - 🚫 Incorrect or inconsistent entries are prevented
-    - 👥 Overall usability of the dashboard is enhanced
+The filtered employment types are used to create the dropdown options for the dashboard.
 
-<img src="/0_Resources/Images/1_Salary_Dashboard_Data_Validation.gif" width="425" height="400" alt="Salary Dashboard Data Validation">
+![Employment Type Table](./0_Resources/Images/1_Salary_Dashboard_Screenshot2.png)
+
+### Dashboard Implementation
+
+The selected employment type updates the related salary chart and job count automatically.
+
+<img src="./0_Resources/Images/1_Salary_Dashboard_Type.png" width="350" alt="Employment Type Dashboard">
+
+### Data Validation in Action
+
+The Job Title, Country, and Type dropdowns make it easy to change the dashboard criteria without manually editing formulas or cells.
+
+The dashboard responds to each selection and updates the relevant calculations and visualizations.
+
+<img src="./0_Resources/Images/1_Salary_Dashboard_Data_Validation.gif" width="425" alt="Salary Dashboard Data Validation">
+
+## What I Learned
+
+This project helped me get more comfortable using Excel for more than basic spreadsheet work. I was able to combine formulas, data validation, charts, and structured data into one interactive dashboard.
+
+Some of the main things I practiced were:
+
+- Writing formulas with multiple criteria
+- Building dynamic calculations
+- Creating dropdown controls with data validation
+- Connecting charts to changing data
+- Organizing supporting tables behind a dashboard
+- Presenting data in a way that is easy to explore
 
 ## Conclusion
 
-I created this dashboard to showcase insights into salary trends across various data-related job titles. Utilizing data from my Excel course, this dashboard allows users to make informed decisions about their career paths. Exploring the functionalities to understand how location and job type influence salaries. 
+This project gave me practical experience building an interactive dashboard from a real-world job postings dataset.
+
+The finished dashboard lets users compare salaries across different job titles, countries, and employment types while also showing job counts and other useful information.
+
+More importantly, it helped me understand how different Excel tools can work together to turn a large dataset into something much easier to analyze and use.
